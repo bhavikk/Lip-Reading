@@ -1,0 +1,10 @@
+data/**/**
+env/**/**
+__pycache__
+lipreading_virtualenv
+env.bat
+__pycache__/**/**
+screenshots/**
+papers/**
+*.pickle
+*.h5

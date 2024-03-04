@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block form %}
+
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<h2>Welcome, Please select a file to generate transcripts</h2>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<script>
+		
+		function generate(e){
+			console.log(name);
+
+				$.ajax({
+		         type: 'POST',
+		         url: './test/',
+		         data: {name: name, request: 2},
+		         sucess: function(data){
+		            console.log('success: ' + data);
+		         }
+	       });
+		}
+	</script>
+	
+		<form action="{% url 'index' %}" id="my-dropzone" enctype="multipart/form-data" method="post" class="dropzone border">
+			{% csrf_token %}
+			<div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+		</form>
+
+
+		<br/><br/>
+		<center><button class="btn btn-large" onClick="generate()">Generate Transcripts</button></center>
+		<!-- <form action="{% url 'index' %}" class="dropzone" drop-zone>
+		    {% csrf_token %}
+		    <div class="fallback">
+		        <h3>Your browser is not supported.</h3>
+		        <strong>
+		            <a href="https://browser-update.org/update.html" target="_blank">Click here for instructions on how to update it.</a>
+		        </strong>
+		        <p>You can still try to upload your pictures through this form: </p>
+		        <p>	
+		        </p>
+		     </div>
+		 </form> -->
+
+		<!-- 
+			<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-primary">Upload</button>  	
+			</form> -->
+	
+{% endblock %}
